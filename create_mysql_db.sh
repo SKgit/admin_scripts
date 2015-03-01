@@ -52,5 +52,5 @@ echo "*****************************************"
 echo "* Data base name: ${DB_NAME}"
 echo "* Data base user: ${DB_NAME}"
 echo "* User password: ${DB_PASSWORD}"
-echo "* Profit!"
 echo "*****************************************"
+

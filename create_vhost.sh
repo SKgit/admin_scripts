@@ -110,7 +110,7 @@ if [ $# -eq 3 ]; then
         mkdir /home/$USER_NAME/$SITE_NAME/cgi-bin
 
         hostConf="
-<VirtualHost ${IP_ADDRESS}:80>
+<VirtualHost *:80>
         ServerName $SITE_NAME
         ServerAlias www.$SITE_NAME
         ServerAdmin $ADMIN_EMAIL
@@ -156,9 +156,14 @@ if [ "$3" != "no" ]; then
     ./create_mysql_db.sh $USER_NAME $MYSQL_ROOT_PWD
 fi
 #display information
-echo "*****************************************"
-echo "* Profit!"
-echo "*****************************************"
+echo "-----------------------------------"
+echo "User name    : $USER_NAME"
+echo "User password: $USER_PASSWORD"
+echo "-----------------------------------"
+    echo "*****************************************"
+
 echo -e "\nDone.\n"
+
+
 
 exit 0
