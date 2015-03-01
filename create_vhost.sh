@@ -19,6 +19,8 @@ ADMIN_EMAIL=admin@example.com
 VHOST_CONF=/etc/apache2/sites-available/
 OWNER=$USER_NAME:$USER_NAME
 CHMOD=0755
+UID_ROOT=0
+APACHE2_DIR="/etc/apache2"
 
 if [ $# -eq 0 ]
 then
@@ -33,7 +35,7 @@ then
 fi
 
 function is_user(){
-    local check_user="$2";
+    local check_user="$1";
     grep "$check_user:" /etc/passwd >/dev/null
     if [ $? -ne 0 ]
     then
@@ -99,8 +101,8 @@ fi
 
 
 
-if [ $# -eq 2 ]; then
-    if [ "$2" != "delete" ]; then
+if [ $# -eq 3 ]; then
+    if [ "$2" != "none" ]; then
         mkdir /home/$USER_NAME/$SITE_NAME
         mkdir /home/$USER_NAME/$SITE_NAME/www
         mkdir /home/$USER_NAME/$SITE_NAME/logs

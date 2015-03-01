@@ -33,7 +33,7 @@ function is_running(){
     fi
 }
 
-if [ $# -eq 1 ]; then
+if [ $# -eq 2 ]; then
     echo -n "Check MySQL status: "
     if(is_running mysqld); then
         echo "OK [Running]";
